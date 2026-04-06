@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kismat Event</title>
+  <meta name="description" content="Join the ultimate Kismat experience. Register now and secure your spot!" />
+  <meta property="og:title" content="Kismat Event" />
+  <meta property="og:description" content="Join the ultimate Kismat experience." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- CRT Scanline Overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Floating Particles -->
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- ===================== SECTION 1: HERO ===================== -->
+  <section id="hero" class="section hero">
+    <div class="hero__grid-bg" aria-hidden="true"></div>
+    <div class="hero__flare" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <p class="hero__tag">KISMAT PRESENTS</p>
+      <h1 class="hero__title chrome-text" id="eventTitle">EVENT NAME</h1>
+      <p class="hero__date" id="eventDate">
+        <span class="hero__date-icon">&#9733;</span>
+        SAT, 26 APRIL 2025 &bull; 7 PM ONWARDS
+      </p>
+      <p class="hero__venue" id="eventVenue">Venue Name, Mumbai</p>
+
+      <div class="hero__price-badge" id="eventPriceBadge">
+        <span class="hero__price-label">ENTRY</span>
+        <span class="hero__price-amount" id="eventPrice">&#8377;299</span>
+      </div>
+
+      <button class="btn btn--primary btn--glow" onclick="scrollToSection('details')">
+        <span>EXPLORE</span>
+        <svg class="btn__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </button>
+    </div>
+
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 2: DETAILS ===================== -->
+  <section id="details" class="section details">
+    <h2 class="section__heading chrome-text">THE DETAILS</h2>
+
+    <div class="details__grid">
+      <div class="glass-card details__card">
+        <div class="details__icon">&#128197;</div>
+        <h3>WHEN</h3>
+        <p id="detailDate">Saturday, 26 April 2025</p>
+        <p id="detailTime">7:00 PM &ndash; 11:00 PM</p>
+      </div>
+
+      <div class="glass-card details__card">
+        <div class="details__icon">&#128205;</div>
+        <h3>WHERE</h3>
+        <p id="detailVenue">Venue Name</p>
+        <p id="detailAddress">Address, Mumbai</p>
+      </div>
+
+      <div class="glass-card details__card">
+        <div class="details__icon">&#127915;</div>
+        <h3>WHAT</h3>
+        <p id="detailDescription">An unforgettable evening of connections, conversations, and good vibes. Meet people who get you.</p>
+      </div>
+
+      <div class="glass-card details__card">
+        <div class="details__icon">&#128176;</div>
+        <h3>PRICE</h3>
+        <p id="detailPrice">&#8377;299 per person</p>
+        <p class="details__note">Includes entry + refreshments</p>
+      </div>
+    </div>
+
+    <div class="details__cta">
+      <button class="btn btn--primary btn--glow" onclick="scrollToSection('register')">
+        <span>GRAB YOUR SPOT</span>
+        <svg class="btn__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </button>
+      <p class="details__spots" id="spotsLeft">Limited spots available</p>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 3: REGISTRATION FORM ===================== -->
+  <section id="register" class="section register">
+    <h2 class="section__heading chrome-text">LOCK IN YOUR SPOT</h2>
+    <p class="register__subtitle">Fill in your details below. After submitting, you'll see the payment QR code.</p>
+
+    <form id="registrationForm" class="glass-card register__form" novalidate>
+      <div class="form-group">
+        <label for="regName">Full Name <span class="required">*</span></label>
+        <input type="text" id="regName" name="name" placeholder="Enter your name" required autocomplete="name" />
+        <span class="form-error" id="errorName"></span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group form-group--half">
+          <label for="regAge">Age <span class="required">*</span></label>
+          <input type="number" id="regAge" name="age" placeholder="18+" min="18" max="99" required />
+          <span class="form-error" id="errorAge"></span>
+        </div>
+        <div class="form-group form-group--half">
+          <label for="regGender">Gender <span class="required">*</span></label>
+          <select id="regGender" name="gender" required>
+            <option value="" disabled selected>Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="non-binary">Non-binary</option>
+            <option value="other">Other</option>
+          </select>
+          <span class="form-error" id="errorGender"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="regPhone">Phone Number <span class="required">*</span></label>
+        <div class="input-prefix">
+          <span class="prefix-text">+91</span>
+          <input type="tel" id="regPhone" name="phone" placeholder="9876543210" maxlength="10" required autocomplete="tel" />
+        </div>
+        <span class="form-error" id="errorPhone"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="regEmail">Email</label>
+        <input type="email" id="regEmail" name="email" placeholder="you@email.com" autocomplete="email" />
+        <span class="form-error" id="errorEmail"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="regInstagram">Instagram Handle</label>
+        <div class="input-prefix">
+          <span class="prefix-text">@</span>
+          <input type="text" id="regInstagram" name="instagram" placeholder="your_handle" />
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--glow btn--full" id="submitBtn">
+        <span id="submitBtnText">PROCEED TO PAYMENT</span>
+        <div class="spinner" id="submitSpinner" style="display:none;"></div>
+      </button>
+    </form>
+  </section>
+
+  <!-- ===================== SECTION 4: PAYMENT ===================== -->
+  <section id="payment" class="section payment" style="display:none;">
+    <h2 class="section__heading chrome-text">PAY &amp; CONFIRM</h2>
+    <p class="payment__subtitle">Scan the QR code below to pay, then upload your screenshot.</p>
+
+    <div class="glass-card payment__card">
+      <div class="payment__amount-bar">
+        <span>Amount to pay:</span>
+        <span class="payment__amount" id="payAmount">&#8377;299</span>
+      </div>
+
+      <div class="payment__qr-wrapper">
+        <img src="payment-qr-code.png" alt="Payment QR Code" class="payment__qr" id="qrImage" />
+      </div>
+
+      <div class="payment__upi">
+        <span id="upiId">7874864063@fam</span>
+        <button class="btn btn--small" id="copyUpiBtn" onclick="copyUPI()">COPY UPI</button>
+      </div>
+
+      <div class="payment__divider">
+        <span>AFTER PAYMENT</span>
+      </div>
+
+      <div class="payment__upload-zone" id="uploadZone">
+        <input type="file" id="screenshotInput" accept="image/*" hidden />
+        <div class="upload-placeholder" id="uploadPlaceholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <p>Tap to upload payment screenshot</p>
+          <span class="upload-hint">JPG, PNG up to 5 MB</span>
+        </div>
+        <img id="screenshotPreview" class="upload-preview" style="display:none;" alt="Screenshot preview" />
+      </div>
+
+      <button class="btn btn--primary btn--glow btn--full" id="confirmPaymentBtn" onclick="submitPayment()" disabled>
+        <span id="confirmBtnText">UPLOAD SCREENSHOT FIRST</span>
+        <div class="spinner" id="paymentSpinner" style="display:none;"></div>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 5: CONFIRMATION ===================== -->
+  <section id="confirmation" class="section confirmation" style="display:none;">
+    <div class="confirmation__burst" aria-hidden="true"></div>
+    <div class="confirmation__content">
+      <div class="confirmation__check">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h2 class="chrome-text">YOU'RE IN!</h2>
+      <p class="confirmation__msg">Your registration is confirmed. We'll verify your payment and send a confirmation shortly.</p>
+      <div class="glass-card confirmation__recap">
+        <p><strong>Name:</strong> <span id="confirmName"></span></p>
+        <p><strong>Event:</strong> <span id="confirmEvent"></span></p>
+        <p><strong>Date:</strong> <span id="confirmDate"></span></p>
+        <p><strong>Venue:</strong> <span id="confirmVenue"></span></p>
+      </div>
+      <p class="confirmation__follow">Follow us <a href="https://instagram.com/kismatindia" target="_blank" rel="noopener">@kismatindia</a> for updates</p>
+    </div>
+  </section>
+
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
