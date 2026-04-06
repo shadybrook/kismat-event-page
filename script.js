@@ -4,8 +4,8 @@
 
 // ─── CONFIG ───────────────────────────────────────
 // Replace these with your actual Supabase credentials before deploying
-const SUPABASE_URL = 'https://blue-salad-f68c.findyourkismat.workers.dev';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9mYmZzY2xwb29rZWFmdmJ4cmVoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkzMDQwMjUsImV4cCI6MjA3NDg4MDAyNX0.i58HAWW5q6WUrZNdQu8iSKk_iXkAqn3GPS6UJ8GPoMo';
+const SUPABASE_URL = 'https://cawsovrvarplajnkuzut.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNhd3NvdnJ2YXJwbGFqbmt1enV0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0NDg4MjksImV4cCI6MjA5MTAyNDgyOX0.LsnIBL5476wlevHg0LPFJ4PLdRe_iKEdH07kjs8swd8';
 
 const EVENT_SLUG = 'event_name'; // unique slug for this event
 const PAYMENT_UPI_ID = '7874864063@fam';
