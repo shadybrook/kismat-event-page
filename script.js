@@ -182,7 +182,8 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
     showPaymentSection();
   } catch (err) {
     console.error('Registration error:', err);
-    showToast('Something went wrong. Please try again.', 'error');
+    const msg = err?.message || 'Something went wrong';
+    showToast('Error: ' + msg, 'error');
     btn.disabled = false;
     btnText.textContent = 'PROCEED TO PAYMENT';
     spinner.style.display = 'none';
